@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_home"
+        android:icon="@drawable/home"
+        android:title="Home" />
+    <item
+        android:id="@+id/menu_wishlist"
+        android:icon="@drawable/heart"
+        android:title="Wishlist" />
+    <item
+        android:id="@+id/menu_card"
+        android:icon="@drawable/cerd"
+        android:title="Add Card"
+        />
+    <item
+        android:id="@+id/menu_settings"
+        android:icon="@drawable/settings"
+        android:title="Setting" />
+    <item
+        android:id="@+id/menu_logout"
+        android:icon="@drawable/img_2"
+        android:title="Logout" />
+
+
+</menu>
