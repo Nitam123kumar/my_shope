@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.SearchView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
@@ -39,7 +40,8 @@ class HomeFragment : Fragment() {
     lateinit var db: FirebaseDatabase
     lateinit var womenProductsAdapter: WomenProductsAdapter
     var womenProductsList = ArrayList<womenProductsDataModel>()
-
+    lateinit var searchView: SearchView
+    var filteredList=ArrayList<womenProductsDataModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,6 +61,35 @@ class HomeFragment : Fragment() {
         val drawerLayout = view.findViewById<DrawerLayout>(R.id.drawer_layout)
         val navigationView = view.findViewById<NavigationView>(R.id.navigation)
         val drawerImageView=view.findViewById<ImageView>(R.id.drawerImageView)
+        searchView=view.findViewById(R.id.searchView)
+        val homeProfile=view.findViewById<ImageView>(R.id.homeProfileImageView)
+
+        homeProfile.setOnClickListener {
+            startActivity(Intent(requireContext(),SettingFragment::class.java))
+        }
+
+        searchView.setOnQueryTextListener(object :SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(p0: String?): Boolean {
+                return false
+            }
+
+            @SuppressLint("NotifyDataSetChanged")
+            override fun onQueryTextChange(newText: String?): Boolean {
+                filteredList.clear()
+                val query = newText?.lowercase()?.trim()
+
+                if (newText != null) {
+                    womenProductsList.forEach {
+                        if (it.womenTittle?.lowercase()?.contains(newText.toLowerCase()) == true) {
+                            filteredList.add(it)
+                        }
+                    }
+                }
+                womenProductsAdapter.filteredList(filteredList)
+                womenProductsAdapter.notifyDataSetChanged()
+                return true
+            }
+        })
 
         navigationView.setNavigationItemSelectedListener {
             when (it.itemId) {

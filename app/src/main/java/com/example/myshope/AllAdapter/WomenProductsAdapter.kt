@@ -1,5 +1,6 @@
 package com.example.myshope.AllAdapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +11,7 @@ import com.bumptech.glide.Glide
 import com.example.myshope.AllDataModel.womenProductsDataModel
 import com.example.myshope.R
 
-class WomenProductsAdapter(val womenProductsList: ArrayList<womenProductsDataModel>): RecyclerView.Adapter<WomenProductsAdapter.WomenProductsViewHolder>() {
+class WomenProductsAdapter(var womenProductsList: ArrayList<womenProductsDataModel>): RecyclerView.Adapter<WomenProductsAdapter.WomenProductsViewHolder>() {
     class WomenProductsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         val womenImageView=itemView.findViewById<ImageView>(R.id.secondListImageView)
@@ -20,6 +21,12 @@ class WomenProductsAdapter(val womenProductsList: ArrayList<womenProductsDataMod
         val womenPriceTextView=itemView.findViewById<TextView>(R.id.secondListPriceTV)
 
 
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun filteredList(womenProductsFilteredList: ArrayList<womenProductsDataModel>){
+        womenProductsList = womenProductsFilteredList
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WomenProductsViewHolder {

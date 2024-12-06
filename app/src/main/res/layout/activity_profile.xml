@@ -43,6 +43,7 @@
             android:layout_height="match_parent">
 
             <ImageView
+                android:id="@+id/profileImageEdit"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/proimg"
@@ -54,6 +55,7 @@
                 android:layout_height="40dp"
                 app:cardCornerRadius="40dp"
                 android:backgroundTint="#2962FF"
+                android:id="@+id/openGalleryCardView"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentRight="true">
 
@@ -99,17 +101,67 @@
             android:layout_marginTop="10dp"
             android:textSize="16dp"/>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/text_shape">
+
+
+        <EditText
+            android:id="@+id/profileNameEdittext"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:hint="Enter Name"
+            android:paddingStart="10dp"
+            android:background="@drawable/text_shape"/>
+
+
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="60dp"/>
+            android:layout_height="wrap_content"
+            android:text="Email Address"
+            android:textColor="@color/black"
+            android:padding="5dp"
+            android:layout_marginTop="10dp"
+            android:textSize="16dp"/>
 
-    </com.google.android.material.textfield.TextInputLayout>
+
+            <EditText
+                android:id="@+id/profileEmailEdittext"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:paddingStart="10dp"
+                android:background="@drawable/text_shape"
+                android:hint="Enter Email"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Phone Number"
+            android:textColor="@color/black"
+            android:padding="5dp"
+            android:layout_marginTop="10dp"
+            android:textSize="16dp"/>
+
+            <EditText
+                android:id="@+id/profilePhoneNumberEdittext"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:paddingStart="10dp"
+                android:background="@drawable/text_shape"
+                android:hint="Enter Phone Number"/>
+
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/updateProfileButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="Update Profile"
+            android:textColor="@color/white"
+            android:background="#FF6D00"
+            android:textAllCaps="false"
+            android:textSize="19dp"
+            />
 
     </LinearLayout>
 </LinearLayout>

@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/drawer_layout"
+    android:background="@color/white"
     tools:context=".AllFragment.HomeFragment">
 
     <RelativeLayout
@@ -46,6 +47,7 @@
             app:cardCornerRadius="50dp">
 
             <ImageView
+                android:id="@+id/homeProfileImageView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="fitXY"
