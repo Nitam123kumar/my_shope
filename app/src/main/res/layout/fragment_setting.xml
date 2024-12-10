@@ -8,22 +8,19 @@
     tools:context=".AllFragment.SettingFragment">
 
 
-    <androidx.appcompat.widget.Toolbar
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
 
         <androidx.cardview.widget.CardView
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_marginTop="40dp"
-            app:cardCornerRadius="10dp"
-            android:layout_gravity="center">
-
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_gravity="center"
-                android:layout_height="match_parent">
+            android:layout_marginStart="20dp"
+            app:cardCornerRadius="150dp"
+           >
 
                 <ImageView
                     android:id="@+id/profileImageView"
@@ -33,50 +30,22 @@
                     android:scaleType="fitXY"
                     />
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    app:cardCornerRadius="40dp"
-                    android:backgroundTint="#2962FF"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentRight="true">
-
-
-                    <ImageView
-                        android:id="@+id/editProfileImageView"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_gravity="center"
-                        android:layout_alignParentBottom="true"
-                        android:layout_alignParentRight="true"
-                        android:src="@drawable/proedit" />
-
-                </androidx.cardview.widget.CardView>
-
-            </RelativeLayout>
-
-
-
         </androidx.cardview.widget.CardView>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:text="Profile"
+            android:textSize="24dp" />
 
-    </androidx.appcompat.widget.Toolbar>
-
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="vertical"
         android:layout_marginHorizontal="20dp"
         android:layout_height="match_parent">
-
-
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Personal Details"
-            android:textSize="20dp"
-            android:textColor="@color/black"
-            android:paddingTop="15dp"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -87,12 +56,6 @@
             android:layout_marginTop="10dp"
             android:textSize="18dp"/>
 
-<!--        <com.google.android.material.textfield.TextInputLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="60dp"-->
-<!--            android:layout_marginTop="5dp"-->
-<!--            android:background="@drawable/text_shape">-->
-
             <TextView
                 android:id="@+id/profileNameTV"
                 android:layout_width="match_parent"
@@ -100,9 +63,7 @@
                 android:paddingStart="15dp"
                 android:textSize="16dp"
                 android:background="@drawable/text_shape"
-                android:layout_height="60dp"/>
-
-<!--        </com.google.android.material.textfield.TextInputLayout>-->
+                android:layout_height="50dp"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -120,7 +81,7 @@
                 android:paddingStart="15dp"
                 android:textSize="16dp"
                 android:background="@drawable/text_shape"
-                android:layout_height="60dp"/>
+                android:layout_height="50dp"/>
 
 
         <TextView
@@ -139,8 +100,41 @@
                 android:paddingStart="15dp"
                 android:textSize="16dp"
                 android:background="@drawable/text_shape"
-                android:layout_height="60dp"/>
+                android:layout_height="50dp"/>
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/editProfileLinearLayout"
+            android:layout_marginTop="20dp">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                app:cardCornerRadius="40dp">
+
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/proimg"
+                    />
+
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
+                android:text="Edit Profile"
+                android:textSize="18dp"
+                android:textColor="@color/black"
+                />
+
+        </LinearLayout>
 
     </LinearLayout>
 

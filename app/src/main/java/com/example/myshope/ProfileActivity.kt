@@ -37,8 +37,8 @@ class ProfileActivity : AppCompatActivity() {
         fireStorage = FirebaseStorage.getInstance()
 
         profileImageEdit = findViewById(R.id.profileImageEdit)
-        editEmail = findViewById(R.id.profileNameEdittext)
-        editName = findViewById(R.id.profileEmailEdittext)
+        editEmail = findViewById(R.id.profileEmailEdittext)
+        editName = findViewById(R.id.profileNameEdittext)
         editPhone = findViewById(R.id.profilePhoneNumberEdittext)
         updateProfileButton = findViewById(R.id.updateProfileButton)
         openGalleryCardView = findViewById(R.id.openGalleryCardView)

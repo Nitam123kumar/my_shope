@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="6dp"
+    android:layout_marginTop="25dp"
+    tools:context=".ProductsDetails.ProductDetailActivity"
+    >
+
+    <ImageView
+        android:id="@+id/productImage"
+        android:layout_width="match_parent"
+        android:layout_height="295dp"
+        android:layout_marginBottom="8dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/imarhs" />
+
+    <!-- Size Selection -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/size_background"
+            android:padding="8dp"
+            android:text="6 UK"
+            android:textColor="#DD2C00" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/size_background"
+            android:padding="8dp"
+            android:text="7 UK"
+            android:textColor="#DD2C00" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/size_background"
+            android:padding="8dp"
+            android:text="8 UK"
+            android:textColor="#DD2C00" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/size_background"
+            android:padding="8dp"
+            android:text="9 UK"
+            android:textColor="#DD2C00" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/size_background"
+            android:padding="8dp"
+            android:text="10 UK"
+            android:textColor="#DD2C00" />
+    </LinearLayout>
+
+    <!-- Product Name -->
+    <TextView
+        android:id="@+id/productName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="Nike Sneakers"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+
+    <!-- Rating Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="4.5 ★"
+            android:textColor="#FFD600"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="56,890 reviews"
+            android:textColor="#D1CFCF"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <!-- Price Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/originalPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="₹2,993"
+             />
+
+        <TextView
+            android:id="@+id/discountPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="₹1,500"
+            android:textColor="#DD2C00"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="(50% OFF)"
+            android:textColor="#00C853"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <!-- Product Details -->
+
+    <TextView
+        android:id="@+id/productDetails1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        android:text="Product Details"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/productDetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        android:text="Perhaps the most iconic sneaker of all-time, this original "
+        android:textColor="@color/black"
+        android:textSize="14sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Chicago? colorway is the cornerstone to any sneaker" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="collection. Made famous in 1985 by Michael Jordan, the" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="shoe has stood the test of time, becoming the most" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="famous colorway of the Air Jordan 1. This 2015 release saw" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="the ...More" />
+
+    <!-- Buttons Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:weightSum="2">
+
+        <ImageView
+            android:id="@+id/goToCart"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:scaleType="fitXY"
+            android:src="@drawable/bynow"
+             />
+
+        <ImageView
+            android:id="@+id/buyNow"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/gotocard"
+            />
+    </LinearLayout>
+
+    <!-- Delivery Info -->
+    <TextView
+        android:id="@+id/deliveryInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="#FFCCD5"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="Delivery in 1 Hour"
+        android:textColor="@color/black"
+        android:textSize="14sp" />
+
+</LinearLayout>

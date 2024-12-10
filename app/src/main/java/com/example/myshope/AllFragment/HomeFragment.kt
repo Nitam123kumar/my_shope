@@ -21,7 +21,9 @@ import com.example.myshope.AllAdapter.StatusAdapter
 import com.example.myshope.AllAdapter.WomenProductsAdapter
 import com.example.myshope.AllDataModel.StatusDataModel
 import com.example.myshope.AllDataModel.womenProductsDataModel
+import com.example.myshope.Interface.ProductsDetailsOnclick
 import com.example.myshope.LoginActivity
+import com.example.myshope.ProductsDetails.ProductDetailActivity
 import com.example.myshope.R
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
@@ -31,7 +33,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment() ,ProductsDetailsOnclick {
 
     lateinit var recyclerView: RecyclerView
     lateinit var secondRecyclerView: RecyclerView
@@ -65,7 +67,10 @@ class HomeFragment : Fragment() {
         val homeProfile=view.findViewById<ImageView>(R.id.homeProfileImageView)
 
         homeProfile.setOnClickListener {
-            startActivity(Intent(requireContext(),SettingFragment::class.java))
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.container, SettingFragment()) // R.id.fragmentContainer is the container for fragments
+                .addToBackStack(null) // Backstack me add karega
+                .commit()
         }
 
         searchView.setOnQueryTextListener(object :SearchView.OnQueryTextListener{
@@ -141,7 +146,7 @@ class HomeFragment : Fragment() {
         secondRecyclerView = view.findViewById<RecyclerView>(R.id.secondRecyclerView)
         secondRecyclerView.layoutManager =
             LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-        womenProductsAdapter = WomenProductsAdapter(womenProductsList)
+        womenProductsAdapter = WomenProductsAdapter(womenProductsList,this)
         secondRecyclerView.adapter = womenProductsAdapter
         womenProductsGetData()
 
@@ -186,6 +191,15 @@ class HomeFragment : Fragment() {
             }
 
         })
+    }
+
+    override fun productsDetailsOnclick(dataModel: womenProductsDataModel) {
+        val intent=Intent(Intent(requireContext(),ProductDetailActivity::class.java))
+        intent.putExtra("image",dataModel.womenImage)
+        intent.putExtra("name",dataModel.womenTittle)
+        intent.putExtra("price",dataModel.womenProductPrice)
+        startActivity(intent)
+
     }
 
 

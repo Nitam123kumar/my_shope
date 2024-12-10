@@ -1,6 +1,7 @@
 package com.example.myshope.AllFragment
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,13 +12,15 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myshope.AllAdapter.WomenProductsAdapter
 import com.example.myshope.AllDataModel.womenProductsDataModel
+import com.example.myshope.Interface.ProductsDetailsOnclick
+import com.example.myshope.ProductsDetails.ProductDetailActivity
 import com.example.myshope.R
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
-class WishlistFragment : Fragment() {
+class WishlistFragment : Fragment() , ProductsDetailsOnclick {
     lateinit var allDataRecyclerView: RecyclerView
     lateinit var womenProductsAdapter: WomenProductsAdapter
     var womenProductsList = ArrayList<womenProductsDataModel>()
@@ -42,7 +45,7 @@ class WishlistFragment : Fragment() {
 
         allDataRecyclerView.layoutManager =
             GridLayoutManager(requireContext(), 2, GridLayoutManager.VERTICAL, false)
-        womenProductsAdapter = WomenProductsAdapter(womenProductsList)
+        womenProductsAdapter = WomenProductsAdapter(womenProductsList,this)
         allDataRecyclerView.adapter = womenProductsAdapter
         db = FirebaseDatabase.getInstance()
         womenProductsGetData()
@@ -93,6 +96,14 @@ class WishlistFragment : Fragment() {
             }
 
         })
+    }
+
+    override fun productsDetailsOnclick(dataModel: womenProductsDataModel) {
+        val intent=Intent(Intent(requireContext(),ProductDetailActivity::class.java))
+        intent.putExtra("image",dataModel.womenImage)
+        intent.putExtra("name",dataModel.womenTittle)
+        intent.putExtra("price",dataModel.womenProductPrice)
+        startActivity(intent)
     }
 
 }

@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
@@ -38,7 +39,7 @@ class SettingFragment : Fragment() {
         auth = FirebaseAuth.getInstance()
 
         val profile = view.findViewById<ImageView>(R.id.profileImageView)
-        val profileEdit = view.findViewById<ImageView>(R.id.editProfileImageView)
+        val profileEdit = view.findViewById<LinearLayout>(R.id.editProfileLinearLayout)
         val profileName = view.findViewById<TextView>(R.id.profileNameTV)
         val profileEmail = view.findViewById<TextView>(R.id.profileEmailTV)
         val profilePhone = view.findViewById<TextView>(R.id.profilePhoneNumberTV)
