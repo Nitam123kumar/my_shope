@@ -9,7 +9,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.SearchView
-import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -21,7 +20,7 @@ import com.example.myshope.AllAdapter.StatusAdapter
 import com.example.myshope.AllAdapter.WomenProductsAdapter
 import com.example.myshope.AllDataModel.StatusDataModel
 import com.example.myshope.AllDataModel.womenProductsDataModel
-import com.example.myshope.Interface.ProductsDetailsOnclick
+import com.example.myshope.OnClickInterface.ProductsDetailsOnclick
 import com.example.myshope.LoginActivity
 import com.example.myshope.ProductsDetails.ProductDetailActivity
 import com.example.myshope.R

@@ -54,5 +54,10 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     implementation (libs.imageslideshow)
     implementation (libs.glide)
+    implementation(libs.gson)
+    implementation (libs.retrofit)
+    implementation ( libs.converter.gson)
+    implementation (libs.adapter.rxjava2)
+    implementation( libs.rxandroid)
 
 }

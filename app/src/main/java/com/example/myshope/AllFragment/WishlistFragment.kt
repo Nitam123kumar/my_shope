@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myshope.AllAdapter.WomenProductsAdapter
 import com.example.myshope.AllDataModel.womenProductsDataModel
-import com.example.myshope.Interface.ProductsDetailsOnclick
+import com.example.myshope.OnClickInterface.ProductsDetailsOnclick
 import com.example.myshope.ProductsDetails.ProductDetailActivity
 import com.example.myshope.R
 import com.google.firebase.database.DataSnapshot

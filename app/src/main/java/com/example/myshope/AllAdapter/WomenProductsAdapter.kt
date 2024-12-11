@@ -1,7 +1,6 @@
 package com.example.myshope.AllAdapter
 
 import android.annotation.SuppressLint
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,8 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.myshope.AllDataModel.womenProductsDataModel
-import com.example.myshope.Interface.ProductsDetailsOnclick
-import com.example.myshope.ProductsDetails.ProductDetailActivity
+import com.example.myshope.OnClickInterface.ProductsDetailsOnclick
 import com.example.myshope.R
 
 class WomenProductsAdapter(var womenProductsList: ArrayList<womenProductsDataModel>,var productsDetailsOnclick: ProductsDetailsOnclick): RecyclerView.Adapter<WomenProductsAdapter.WomenProductsViewHolder>() {

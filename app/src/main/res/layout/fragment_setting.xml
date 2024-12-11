@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".AllFragment.SettingFragment">
 
 
@@ -17,18 +17,16 @@
         <androidx.cardview.widget.CardView
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:layout_marginTop="40dp"
             android:layout_marginStart="20dp"
-            app:cardCornerRadius="150dp"
-           >
+            android:layout_marginTop="40dp"
+            app:cardCornerRadius="150dp">
 
-                <ImageView
-                    android:id="@+id/profileImageView"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/proimg"
-                    android:scaleType="fitXY"
-                    />
+            <ImageView
+                android:id="@+id/profileImageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@drawable/img_3" />
 
         </androidx.cardview.widget.CardView>
 
@@ -41,73 +39,71 @@
             android:textSize="24dp" />
 
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:orientation="vertical"
+        android:layout_height="match_parent"
         android:layout_marginHorizontal="20dp"
-        android:layout_height="match_parent">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Name"
-            android:textColor="@color/black"
-            android:padding="5dp"
-            android:layout_marginTop="10dp"
-            android:textSize="18dp"/>
-
-            <TextView
-                android:id="@+id/profileNameTV"
-                android:layout_width="match_parent"
-                android:paddingTop="15dp"
-                android:paddingStart="15dp"
-                android:textSize="16dp"
-                android:background="@drawable/text_shape"
-                android:layout_height="50dp"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Email Address"
-            android:textColor="@color/black"
-            android:padding="5dp"
-            android:layout_marginTop="10dp"
-            android:textSize="18dp"/>
-
-            <TextView
-                android:id="@+id/profileEmailTV"
-                android:layout_width="match_parent"
-                android:paddingTop="15dp"
-                android:paddingStart="15dp"
-                android:textSize="16dp"
-                android:background="@drawable/text_shape"
-                android:layout_height="50dp"/>
+        android:orientation="vertical">
 
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Phone Number"
-            android:textColor="@color/black"
-            android:padding="5dp"
-            android:layout_marginTop="10dp"
-            android:textSize="18dp"/>
-
-            <TextView
-                android:id="@+id/profilePhoneNumberTV"
-                android:layout_width="match_parent"
-                android:paddingTop="15dp"
-                android:paddingStart="15dp"
-                android:textSize="16dp"
-                android:background="@drawable/text_shape"
-                android:layout_height="50dp"/>
-
-        <LinearLayout
+            android:id="@+id/profileNameTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:paddingStart="15dp"
+            android:paddingTop="15dp"
+            android:textSize="19dp" />
+
+
+        <TextView
+            android:id="@+id/profileEmailTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="15dp"
+            android:textSize="16dp" />
+
+
+        <LinearLayout
             android:id="@+id/editProfileLinearLayout"
-            android:layout_marginTop="20dp">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                app:cardCornerRadius="40dp">
+
+
+                <ImageView
+                    android:id="@+id/profileImageEdit"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/img_3" />
+
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:text="Edit Profile"
+                android:textColor="@color/black"
+                android:textSize="18dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ShareAppLinearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="40dp"
@@ -118,8 +114,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/proimg"
-                    />
+                    android:src="@drawable/img_4" />
 
 
             </androidx.cardview.widget.CardView>
@@ -127,14 +122,46 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
                 android:layout_gravity="center"
-                android:text="Edit Profile"
-                android:textSize="18dp"
+                android:layout_marginLeft="10dp"
+                android:text="Share App"
                 android:textColor="@color/black"
-                />
+                android:textSize="18dp" />
 
         </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/logoutLinearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                app:cardCornerRadius="40dp">
+
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/img_5" />
+
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:text="Logout"
+                android:textColor="@color/black"
+                android:textSize="18dp" />
+
+        </LinearLayout>
+
 
     </LinearLayout>
 

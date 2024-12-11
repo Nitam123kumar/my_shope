@@ -1,4 +1,4 @@
-package com.example.myshope.Interface
+package com.example.myshope.OnClickInterface
 
 import com.example.myshope.AllDataModel.womenProductsDataModel
 

@@ -44,20 +44,26 @@ class LoginActivity : AppCompatActivity() {
         if (email1.isEmpty()){
             email.error="required this field"
         }
-        if (password1.isEmpty()){
-            password.error="required this field"
+
+        if (password1.length < 8) {
+            Toast.makeText(this, "Password must be at least 8 characters", Toast.LENGTH_SHORT).show()
         }
 
-        auth.signInWithEmailAndPassword(email1,password1)
-            .addOnSuccessListener {
-                startActivity(Intent(this,MainActivity::class.java))
-                finish()
-            }
-            .addOnFailureListener {
-                Toast.makeText(this, "Please Enter Your Right Email And Password", Toast.LENGTH_SHORT).show()
-            }
+        else{
+            auth.signInWithEmailAndPassword(email1,password1)
+                .addOnSuccessListener {
+                    startActivity(Intent(this,MainActivity::class.java))
+                    finish()
+                    email.text.clear()
+                    password.text.clear()
+                }
+                .addOnFailureListener {
+                    Toast.makeText(this, "Please Enter Your Right Email And Password", Toast.LENGTH_SHORT).show()
+                }
 
-        email.text.clear()
-        password.text.clear()
-    }
+
+        }
+        }
+
+
 }
