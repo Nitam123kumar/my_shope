@@ -74,7 +74,7 @@ class SettingFragment : Fragment() {
                     list.clear()
                     val data = snapshot.getValue(UserProfileDataModel::class.java)
                     list.add(data!!)
-                    profileName.text = data.name
+                    profileName.text = data.username
                     profileEmail.text = data.email
                     Glide.with(requireContext()).load(data.image).into(profileImageEdit)
                     Glide.with(requireContext()).load(data.image).into(profile)

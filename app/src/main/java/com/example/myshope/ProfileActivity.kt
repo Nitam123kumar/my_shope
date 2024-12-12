@@ -42,6 +42,10 @@ class ProfileActivity : AppCompatActivity() {
         editName = findViewById(R.id.profileNameEdittext)
         updateProfileButton = findViewById(R.id.updateProfileButton)
         openGalleryCardView = findViewById(R.id.openGalleryCardView)
+        val onBack=findViewById<ImageView>(R.id.onBack)
+        onBack.setOnClickListener {
+            onBackPressed()
+        }
 
         openGalleryCardView.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK)
@@ -85,7 +89,7 @@ class ProfileActivity : AppCompatActivity() {
         val email = editEmail.text.toString()
 
         val user = hashMapOf(
-            "name" to name,
+            "username" to name,
             "email" to email,
             "image" to downloadUri.toString()
         )
@@ -122,7 +126,14 @@ class ProfileActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == 100 && resultCode == RESULT_OK) {
             imageUri = data?.data!!
-            profileImageEdit.setImageURI(imageUri)
+            if (imageUri != null) {
+                // Glide se image set karo
+                Glide.with(this)
+                    .load(imageUri)
+                    .into(profileImageEdit)
+            } else {
+                Toast.makeText(this, "Failed to get image from gallery", Toast.LENGTH_SHORT).show()
+            }
         }
 
     }
