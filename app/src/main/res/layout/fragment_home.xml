@@ -83,7 +83,7 @@
                 android:iconifiedByDefault="false"
                 android:padding="4dp"
                 android:queryBackground="@color/white"
-                android:queryHint="Search Programming language" />
+                android:queryHint="Search Items ...." />
         </androidx.cardview.widget.CardView>
 
 
@@ -433,6 +433,7 @@
                             android:backgroundTint="#F00E0E">
 
                             <LinearLayout
+                                android:id="@+id/visitApi"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:orientation="horizontal"

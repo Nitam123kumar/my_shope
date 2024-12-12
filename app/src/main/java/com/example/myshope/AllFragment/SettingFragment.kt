@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.core.net.toUri
@@ -29,7 +30,6 @@ class SettingFragment : Fragment() {
     lateinit var db: FirebaseDatabase
     lateinit var auth: FirebaseAuth
     lateinit var profileImageEdit: ImageView
-
     var list = ArrayList<UserProfileDataModel>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,6 +53,8 @@ class SettingFragment : Fragment() {
         val profileName = view.findViewById<TextView>(R.id.profileNameTV)
         val profileEmail = view.findViewById<TextView>(R.id.profileEmailTV)
         profileImageEdit = view.findViewById(R.id.profileImageEdit)
+        val progressBar=view.findViewById<ProgressBar>(R.id.progressBar)
+        progressBar.visibility= View.VISIBLE
 //        val shareApp = view.findViewById<LinearLayout>(R.id.ShareAppLinearLayout)
         val logout = view.findViewById<LinearLayout>(R.id.logoutLinearLayout)
         logout.setOnClickListener {
@@ -74,15 +76,16 @@ class SettingFragment : Fragment() {
                     list.clear()
                     val data = snapshot.getValue(UserProfileDataModel::class.java)
                     list.add(data!!)
-                    profileName.text = data.name
+                    profileName.text = data.username
                     profileEmail.text = data.email
                     Glide.with(requireContext()).load(data.image).into(profileImageEdit)
                     Glide.with(requireContext()).load(data.image).into(profile)
+                    progressBar.visibility=View.GONE
 
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-
+                    progressBar.visibility=View.GONE
                 }
             })
 

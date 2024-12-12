@@ -17,8 +17,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        buttonNavigationView = findViewById(R.id.bottom_navigation) as BottomNavigationView
-        loadFragment(HomeFragment())
+        val showFragment = intent.getStringExtra("showFragment")?:""
+        if (showFragment.isNotEmpty()) {
+            loadFragment(CardFragment())
+        }
+        else{
+            loadFragment(HomeFragment())
+        }
+
+        buttonNavigationView = findViewById(R.id.bottom_navigation)!!
         buttonNavigationView.setOnItemSelectedListener { item ->
 
             when (item.itemId) {

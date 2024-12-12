@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="7dp"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:backgroundTint="#FFD600"
+                app:cardCornerRadius="20dp">
+
+                <ImageView
+                    android:id="@+id/cartImageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/proimg" />
+
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/cartTittleTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Women Printed Kurta"
+                    android:textColor="@color/black"
+                    android:textSize="19dp"
+                    android:padding="4dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/cartTittleTV2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Neque porro quisquam est qui"
+                    android:textColor="@color/black"
+                    android:textSize="19dp" />
+
+                <TextView
+                    android:id="@+id/cartTittleTV3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="dolorem ipsum quia"
+                    android:textColor="@color/black"
+                    android:textSize="19dp" />
+
+                <TextView
+                    android:id="@+id/cartPriceTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="₹1500"
+                    android:textColor="@color/black"
+                    android:textSize="19dp"
+                    android:textStyle="bold" />
+
+                <RatingBar
+                    android:id="@+id/rating"
+                    style="?android:attr/ratingBarStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:isIndicator="true"
+                    android:numStars="5"
+                    android:progressBackgroundTint="#EDB310"
+                    android:stepSize="0.1" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

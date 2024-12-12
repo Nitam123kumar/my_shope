@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.SearchView
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
@@ -20,6 +21,7 @@ import com.example.myshope.AllAdapter.StatusAdapter
 import com.example.myshope.AllAdapter.WomenProductsAdapter
 import com.example.myshope.AllDataModel.StatusDataModel
 import com.example.myshope.AllDataModel.womenProductsDataModel
+import com.example.myshope.ApiCallingActivity.VisitApiData
 import com.example.myshope.OnClickInterface.ProductsDetailsOnclick
 import com.example.myshope.LoginActivity
 import com.example.myshope.ProductsDetails.ProductDetailActivity
@@ -43,6 +45,7 @@ class HomeFragment : Fragment() ,ProductsDetailsOnclick {
     var womenProductsList = ArrayList<womenProductsDataModel>()
     lateinit var searchView: SearchView
     var filteredList=ArrayList<womenProductsDataModel>()
+    lateinit var visitApi: LinearLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,6 +62,7 @@ class HomeFragment : Fragment() ,ProductsDetailsOnclick {
 
         db = FirebaseDatabase.getInstance()
 
+        visitApi = view.findViewById(R.id.visitApi)
         val drawerLayout = view.findViewById<DrawerLayout>(R.id.drawer_layout)
         val navigationView = view.findViewById<NavigationView>(R.id.navigation)
         val drawerImageView=view.findViewById<ImageView>(R.id.drawerImageView)
@@ -72,12 +76,16 @@ class HomeFragment : Fragment() ,ProductsDetailsOnclick {
                 .commit()
         }
 
+        visitApi.setOnClickListener {
+            startActivity(Intent(requireContext(), VisitApiData::class.java))
+        }
+
         searchView.setOnQueryTextListener(object :SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(p0: String?): Boolean {
                 return false
             }
 
-            @SuppressLint("NotifyDataSetChanged")
+            @SuppressLint("NotifyDataSetChanged", "DefaultLocale")
             override fun onQueryTextChange(newText: String?): Boolean {
                 filteredList.clear()
                 val query = newText?.lowercase()?.trim()
@@ -197,6 +205,9 @@ class HomeFragment : Fragment() ,ProductsDetailsOnclick {
         intent.putExtra("image",dataModel.womenImage)
         intent.putExtra("name",dataModel.womenTittle)
         intent.putExtra("price",dataModel.womenProductPrice)
+        intent.putExtra("description",dataModel.womenDescription)
+        intent.putExtra("description2",dataModel.womenDescription2)
+        intent.putExtra("title",dataModel.womenTittle)
         startActivity(intent)
 
     }

@@ -42,16 +42,20 @@ class RegisterActivity : AppCompatActivity() {
 
         val register_btn = findViewById<Button>(R.id.register_btn)
         register_btn.setOnClickListener {
-
             if (username.text.isEmpty()) {
-                username.error = "required this field"
+                username.error = "required this username"
             }
-            if (email.text.isEmpty()) {
-                email.error = "required this field"
+          else  if (email.text.isEmpty()) {
+                email.error = "required this email"
             }
-            val password = password.text.toString()
+            else if (!isGmail(email.text.toString())) {
+                email.error = "Only Gmail accounts are allowed"
+            }
+            else if (password.text.isEmpty()) {
+                password.error = "required this password"
+            }
 
-            if (password.length < 8) {
+          else  if (password.length() < 8) {
                 Toast.makeText(this, "Password must be at least 8 characters", Toast.LENGTH_SHORT).show()
             }
             else {
@@ -69,7 +73,7 @@ class RegisterActivity : AppCompatActivity() {
 
         auth.createUserWithEmailAndPassword(email1, password1)
             .addOnSuccessListener {
-                Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Register Success", Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this, LoginActivity::class.java))
                 val data = hashMapOf(
                     "image" to "",
@@ -86,9 +90,13 @@ class RegisterActivity : AppCompatActivity() {
                 password.text.clear()
             }
             .addOnFailureListener {
-                Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Register Failed", Toast.LENGTH_SHORT).show()
             }
 
 
+    }
+    private fun isGmail(email: String): Boolean {
+        val regex = Regex("^[a-zA-Z0-9._%+-]+@gmail\\.com$")
+        return regex.matches(email)
     }
 }
