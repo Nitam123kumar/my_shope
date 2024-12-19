@@ -1,5 +1,6 @@
 package com.example.myshope.AllAdapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,9 +9,10 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.myshope.AllDataModel.womenProductsDataModel
+import com.example.myshope.OnClickInterface.ProductsDetailsOnclick
 import com.example.myshope.R
 
-class TrendingProductsAdapter(val trendingProductsList: ArrayList<womenProductsDataModel>) :
+class TrendingProductsAdapter(var trendingProductsList: ArrayList<womenProductsDataModel>,var productDetailsOnclick: ProductsDetailsOnclick) :
     RecyclerView.Adapter<TrendingProductsAdapter.TrendingProductsAdapterViewHolder>() {
     class TrendingProductsAdapterViewHolder(item: View):RecyclerView.ViewHolder(item) {
 
@@ -20,6 +22,12 @@ class TrendingProductsAdapter(val trendingProductsList: ArrayList<womenProductsD
         val trendingDescription2TextView=itemView.findViewById<TextView>(R.id.secondListTittleTV3)
         val trendingPriceTextView=itemView.findViewById<TextView>(R.id.secondListPriceTV)
 
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun filteredList(womenProductsFilteredList: ArrayList<womenProductsDataModel>){
+        trendingProductsList = womenProductsFilteredList
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(
@@ -43,6 +51,9 @@ class TrendingProductsAdapter(val trendingProductsList: ArrayList<womenProductsD
         holder.trendingDescriptionTextView.text=trendingProducts.womenDescription
         holder.trendingDescription2TextView.text=trendingProducts.womenDescription2
         holder.trendingPriceTextView.text=trendingProducts.womenProductPrice
+        holder.itemView.setOnClickListener {
+            productDetailsOnclick.productsDetailsOnclick(trendingProducts)
+        }
 
     }
 }

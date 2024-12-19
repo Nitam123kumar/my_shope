@@ -12,16 +12,19 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.myshope.AllAdapter.CartAdapter
 import com.example.myshope.AllDataModel.AddCartDataModel
 import com.example.myshope.R
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
+@Suppress("DEPRECATION")
 class CardFragment : Fragment() {
     lateinit var db: FirebaseDatabase
     var cartList = ArrayList<AddCartDataModel>()
     lateinit var cartAdapter: CartAdapter
-    lateinit var cartRecyclerView: RecyclerView
+    private lateinit var cartRecyclerView: RecyclerView
+    lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -35,6 +38,7 @@ class CardFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_card, container, false)
         db = FirebaseDatabase.getInstance()
+        auth = FirebaseAuth.getInstance()
         cartRecyclerView = view.findViewById(R.id.cardRecyclerView)
         cartRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         cartAdapter = CartAdapter(cartList)
@@ -47,14 +51,14 @@ class CardFragment : Fragment() {
         return view
     }
 
-    fun getCartData() {
+    private fun getCartData() {
 
         val progressDialog = android.app.ProgressDialog(requireContext())
         progressDialog.setMessage("Getting Data Add  To Cart...")
         progressDialog.setCancelable(false)
         progressDialog.show()
 
-        db.getReference("addToCart")
+        db.getReference("addToCart").child(auth.currentUser?.uid!!)
             .addValueEventListener(object : ValueEventListener {
                 @SuppressLint("NotifyDataSetChanged")
                 override fun onDataChange(snapshot: DataSnapshot) {

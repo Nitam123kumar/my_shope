@@ -11,11 +11,11 @@ import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
-import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.example.myshope.AllDataModel.UserProfileDataModel
 import com.example.myshope.LoginActivity
+import com.example.myshope.ProductsDetails.MyOrdersActivity
 import com.example.myshope.ProfileActivity
 import com.example.myshope.R
 import com.google.firebase.auth.FirebaseAuth
@@ -23,12 +23,11 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.google.firebase.firestore.FirebaseFirestore
 
 class SettingFragment : Fragment() {
 
     lateinit var db: FirebaseDatabase
-    lateinit var auth: FirebaseAuth
+    private lateinit var auth: FirebaseAuth
     lateinit var profileImageEdit: ImageView
     var list = ArrayList<UserProfileDataModel>()
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,6 +53,8 @@ class SettingFragment : Fragment() {
         val profileEmail = view.findViewById<TextView>(R.id.profileEmailTV)
         profileImageEdit = view.findViewById(R.id.profileImageEdit)
         val progressBar=view.findViewById<ProgressBar>(R.id.progressBar)
+        val myOrders = view.findViewById<LinearLayout>(R.id.myOrdersLinearLayout)
+
         progressBar.visibility= View.VISIBLE
 //        val shareApp = view.findViewById<LinearLayout>(R.id.ShareAppLinearLayout)
         val logout = view.findViewById<LinearLayout>(R.id.logoutLinearLayout)
@@ -61,6 +62,10 @@ class SettingFragment : Fragment() {
             logoutAlertDialog()
         }
 
+        myOrders.setOnClickListener {
+            val intent = Intent(requireContext(), MyOrdersActivity::class.java)
+            startActivity(intent)
+        }
 
         profileEdit.setOnClickListener {
             val intent = Intent(requireContext(), ProfileActivity::class.java)
@@ -93,7 +98,7 @@ class SettingFragment : Fragment() {
         return view
     }
 
-    fun logoutAlertDialog(){
+  private  fun logoutAlertDialog(){
         val dialog=AlertDialog.Builder(requireContext())
         dialog.setTitle("Logout")
         dialog.setMessage("Are you sure you want to logout?")

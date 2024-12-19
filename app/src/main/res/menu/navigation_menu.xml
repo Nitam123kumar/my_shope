@@ -2,26 +2,24 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/menu_home"
-        android:icon="@drawable/home"
-        android:title="Home" />
+        android:id="@+id/menu_profile"
+        android:icon="@drawable/user"
+        android:title="@string/profile" />
+
     <item
         android:id="@+id/menu_wishlist"
         android:icon="@drawable/heart"
-        android:title="Wishlist" />
+        android:title="@string/wishlist" />
     <item
-        android:id="@+id/menu_card"
-        android:icon="@drawable/cerd"
-        android:title="Add Card"
+        android:id="@+id/menu_orders"
+        android:icon="@drawable/my_order"
+        android:title="@string/my_orders"
         />
-    <item
-        android:id="@+id/menu_settings"
-        android:icon="@drawable/settings"
-        android:title="Setting" />
+
     <item
         android:id="@+id/menu_logout"
         android:icon="@drawable/img_2"
-        android:title="Logout" />
+        android:title="@string/logout" />
 
 
 </menu>

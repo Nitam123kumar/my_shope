@@ -1,5 +1,6 @@
 package com.example.myshope.AllAdapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,9 +9,10 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.myshope.AllDataModel.FakeStoreApiDataModel
+import com.example.myshope.OnClickInterface.ApiProductsDetailsOnclick
 import com.example.myshope.R
 
-class ApiAdapter(val apiList:List<FakeStoreApiDataModel>): RecyclerView.Adapter<ApiAdapter.ApiViewHolder>() {
+class ApiAdapter(var apiList:List<FakeStoreApiDataModel>,var apiProductsDetailsOnclick: ApiProductsDetailsOnclick): RecyclerView.Adapter<ApiAdapter.ApiViewHolder>() {
     class ApiViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)  {
         val image=itemView.findViewById<ImageView>(R.id.apiImageView)
         val tittle=itemView.findViewById<TextView>(R.id.apiTittleTV)
@@ -18,6 +20,12 @@ class ApiAdapter(val apiList:List<FakeStoreApiDataModel>): RecyclerView.Adapter<
         val price=itemView.findViewById<TextView>(R.id.apiPriceTV)
 
 
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun filteredList(womenProductsFilteredList: ArrayList<FakeStoreApiDataModel>){
+        apiList = womenProductsFilteredList
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ApiViewHolder {
@@ -36,5 +44,8 @@ class ApiAdapter(val apiList:List<FakeStoreApiDataModel>): RecyclerView.Adapter<
         holder.price.text=api.price.toString()
 
         Glide.with(holder.itemView.context).load(api.image).into(holder.image)
+        holder.itemView.setOnClickListener {
+            apiProductsDetailsOnclick.apiProductsDetailsOnclick(api)
+        }
     }
 }

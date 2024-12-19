@@ -5,14 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.RatingBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.myshope.AllDataModel.AddCartDataModel
 import com.example.myshope.R
 
-class CartAdapter(val cartList: List<AddCartDataModel>): RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
+class CartAdapter(private val cartList: List<AddCartDataModel>): RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
     class CartViewHolder (itemView: View): RecyclerView.ViewHolder(itemView){
 
         val cartImageView=itemView.findViewById<ImageView>(R.id.cartImageView)
@@ -20,7 +19,7 @@ class CartAdapter(val cartList: List<AddCartDataModel>): RecyclerView.Adapter<Ca
         val cartTittleTV2=itemView.findViewById<TextView>(R.id.cartTittleTV2)
         val cartTittleTV3=itemView.findViewById<TextView>(R.id.cartTittleTV3)
         val cartPriceTV=itemView.findViewById<TextView>(R.id.cartPriceTV)
-        val rating=itemView.findViewById<RatingBar>(R.id.rating)
+
 
 
     }
